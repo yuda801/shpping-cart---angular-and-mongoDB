@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 // listen for requests
 require('./user-server/user.routes')(app);
 require('./product-server/product.routes')(app);
+require('./cart-server/cart.routes')(app);
 
 app.listen(3005, () => {
     console.log("Server is listening on port 3005");
