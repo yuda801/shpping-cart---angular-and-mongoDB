@@ -8,11 +8,11 @@ module.exports = (app) => {
     app.get('/users', users.findAll);
 
     // Retrieve a single operation with objectId
-    app.get('/users/:id', users.findOne);
+    app.get('/users/:userID', users.findOne);
 
-    // Update a operation with operationId
-    // app.put('/users/:operationId', users.update);
+    // Update a operation with userID
+    //app.put('/users/:userID', users.update);
 
-    // Delete a operation with operationId
-    // app.delete('/users/:operationId', users.delete);
+    // Delete a operation with userID
+    app.delete('/users/:userID', users.delete);
 }

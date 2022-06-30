@@ -1,18 +1,26 @@
 const User = require('./user.model');
 
-// Create and Save a new Note
+// Create and Save a new User
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.name) {
+    if (!req.body.firstName) {
         return res.status(400).send({
-            message: "name can not be empty"
+            message: "firstName can not be empty"
         });
     }
 
-    // Create an operation
+    // Create a user
+    let tempID = 0
     const user = new User({
-        name: req.body.name || "UnNamed",
-        id: req.body.id || 0000
+        userID: req.body.userID || ++tempID,
+        firstName: req.body.firstName || "first-name",
+        lastName: req.body.lastName || "last-name",
+        userName: req.body.userName || "usersEmail",
+        snn: req.body.snn || 11111111,
+        password: req.body.password || "password",
+        buyerCity: req.body.buyerCity || "buyerCity",
+        buyerStrret: req.body.buyerStrret || "buyerStrret",
+        roll: req.body.roll || "users role"
     });
 
     // Save user in the database
@@ -55,6 +63,28 @@ exports.findOne = (req, res) => {
             }
             return res.status(500).send({
                 message: "Error retrieving user with id " + req.params.id
+            });
+        });
+};
+
+// Find a single user with a id and delete it
+exports.delete = (req, res) => {
+    User.deleteOne(req.params.id)
+        .then(user => {
+            if (!user) {
+                return res.status(404).send({
+                    message: "User not found with id " + req.params.id
+                });
+            }
+            res.send(user);
+        }).catch(err => {
+            if (err.kind === 'id') {
+                return res.status(404).send({
+                    message: "user not found with id " + req.params.id
+                });
+            }
+            return res.status(500).send({
+                message: "Error deleting user with id " + req.params.id
             });
         });
 };

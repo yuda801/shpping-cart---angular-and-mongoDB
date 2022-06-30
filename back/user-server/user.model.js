@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
-    id: Number,
+    userID: Number,
     firstName: String,
     lastName: String,
     userName: String,
@@ -9,8 +9,7 @@ const UserSchema = mongoose.Schema({
     password: Number,
     buyerCity: String,
     buyerStrret: String,
-    roll: String,
-    id: Number
+    roll: String
 }, {
     timestamps: true
 });
