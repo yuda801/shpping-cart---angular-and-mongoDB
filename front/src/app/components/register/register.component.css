@@ -1,0 +1,51 @@
+.register-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-full-width {
+  width: 100%;
+  background-color: cadetblue;
+  background-image: url("../../../assets/wallOfBricks.jpg");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header h1 {
+  text-align: center;
+}
+
+.container {
+  align-items: center;
+  background-color: rgba(245, 202, 145, 0.92);
+  width: 50%;
+  border: 1px black ridge;
+  margin: auto;
+}
+
+mat-form-field {
+  /* margin-top: -15px auto; */
+  /* padding: -9px auto; */
+}
+
+.app-register {
+
+}
+
+:host
+{
+  display: block;
+  background-color: cadetblue;
+  background-image: url("../../../assets/wallOfBricks.jpg");
+  background-color: #cccccc;
+  /* height: 500px; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
