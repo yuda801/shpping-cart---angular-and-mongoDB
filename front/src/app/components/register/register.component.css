@@ -1,20 +1,20 @@
 .register-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+  background-color: rgba(134, 77, 227, 0.92);
+  opacity: 1;
+  background-image: url(../../../assets/whiteWall.jpg);
+  border: 1px black ridge;
+  margin: auto;
   display: flex;
   flex-direction: column;
+  min-width: 20%;
+  max-width: 50%;
+  margin-top: 5%;
+  padding: 5%;
 }
 
-.example-full-width {
-  width: 100%;
-  background-color: cadetblue;
-  background-image: url("../../../assets/wallOfBricks.jpg");
-  background-color: #cccccc;
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.item{
+  width:fit-content;
+  align-self: center;
 }
 
 header h1 {
@@ -22,32 +22,20 @@ header h1 {
 }
 
 .container {
-  /* align-items: center; */
-  display: flex;
-  justify-content: center;
-  background-color: rgba(245, 202, 145, 0.92);
-  width: 50%;
-  border: 1px black ridge;
-  margin: 0 auto;
-}
-
-mat-form-field {
-  /* margin-top: -15px auto; */
-  /* padding: -9px auto; */
-}
-
-.app-register {
-
-}
-
-:host
-{
-  display: block;
-  background-color: cadetblue;
+  height: 100vh;
+  background-color: blue;
   background-image: url("../../../assets/wallOfBricks.jpg");
-  background-color: #cccccc;
-  height:100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: block;
+}
+
+h3 {
+  padding: 0%;
+  margin: 0 auto;
+}
+
+.text {
+  text-align: center;
 }
