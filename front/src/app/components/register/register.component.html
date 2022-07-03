@@ -1,16 +1,29 @@
 <mat-card class="container">
-  <form class="register-form">
+  <form class="register-form"
+    #registerOne="ngForm">
 
     <header>
       <h1>Registration Form</h1>
     </header>
     <h2>Registration Part 1</h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Role</mat-label>
+      <select matNativeControl
+        name="role"
+        ngModel
+        required>
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+      </select>
+    </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>ID</mat-label>
       <input matInput
         placeholder="ID"
         type="number"
-        name="id">
+        name="id" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -18,24 +31,25 @@
       <input matInput
         placeholder="Email"
         type="email"
-        name="email">
+        name="email" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
       <input matInput
         placeholder="Password"
-        name="password">
+        name="password" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Confirm Password</mat-label>
       <input matInput
         placeholder="Confirm Password"
-        name="confirm-password">
+        name="confirm-password" required>
     </mat-form-field>
 
-    <button mat-raised-button color="primary">Move To Part Two</button>
+    <button mat-raised-button
+      color="primary">Move To Part Two</button>
 
   </form>
 </mat-card>

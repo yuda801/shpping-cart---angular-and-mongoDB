@@ -16,7 +16,7 @@ exports.create = (req, res) => {
         firstName: req.body.firstName || "first-name",
         lastName: req.body.lastName || "last-name",
         userName: req.body.userName || "usersEmail",
-        snn: req.body.snn || 11111111,
+        ssn: req.body.ssn || 11111111,
         password: req.body.password || "password",
         buyerCity: req.body.buyerCity || "buyerCity",
         buyerStrret: req.body.buyerStrret || "buyerStrret",

@@ -6,7 +6,7 @@
   flex-direction: column;
 }
 
-.example-full-width {
+/* .example-full-width {
   width: 100%;
   background-color: cadetblue;
   background-image: url("../../../assets/wallOfBricks.jpg");
@@ -15,7 +15,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 header h1 {
   text-align: center;
