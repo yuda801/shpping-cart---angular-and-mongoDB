@@ -1,6 +1,7 @@
 <mat-card class="container">
   <div class="box">
-    <form class="register-form">
+    <!-- <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" > -->
+    <form class="register-form" #logInForm="ngForm">
 
       <header>
         <h1>Log In</h1>
@@ -8,20 +9,20 @@
 
       <mat-form-field appearance="outline" class="item">
         <mat-label>User Name</mat-label>
-        <input matInput
-          placeholder="User Name"
+        <input matInput ngModel
+          placeholder="user name"
           name="userName">
       </mat-form-field>
 
 
       <mat-form-field appearance="outline" class="item">
         <mat-label>Password</mat-label>
-        <input matInput
+        <input matInput ngModel
           placeholder="Password"
           name="password">
       </mat-form-field>
 
-      <button mat-raised-button  class="item"
+      <button mat-raised-button  class="item" (click)="handleLogInClick(logInForm.form.value)"
         color="primary">Log In</button><br>
       <h3 class="text">Not registered yet? Register now:</h3>
       <button mat-raised-button  class="item"
