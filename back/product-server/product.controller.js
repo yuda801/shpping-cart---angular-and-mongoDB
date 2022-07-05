@@ -3,9 +3,9 @@ const Product = require('./product.model');
 // Create and Save a new product
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.firstName) {
+    if (!req.body.name) {
         return res.status(400).send({
-            message: "firstName can not be empty"
+            message: "name can not be empty"
         });
     }
 
@@ -14,6 +14,7 @@ exports.create = (req, res) => {
     const product = new Product({
         productID: req.body.productID || ++tempID,
         name: req.body.name || "name",
+        category: req.body.category || "category",
         price: req.body.price || 11111111,
         imagePath: req.body.imagePath || "imagePath"
     });
@@ -30,7 +31,7 @@ exports.create = (req, res) => {
 };
 
 // Retrieve and return all product from the database.
-exports.findAll = (_, res) => {
+exports.findAll = (req, res) => {
     Product.find().then(product => {
         res.send(product);
     }).catch(err => {
