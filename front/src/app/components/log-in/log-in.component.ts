@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
-// import { UsersI } from 'src/app/interfaces/usersInterface';
-import { RouterLink } from '@angular/router';
+// import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
+import { StatesService } from 'src/app/services/states.service';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -14,7 +14,7 @@ export class LogInComponent implements OnInit {
   passwordInput = ''
 
   constructor(private _userService: UsersService,
-    private _router:Router
+    private _router:Router, private _isReged:StatesService
     ) { }
 
   ngOnInit(): void {
@@ -42,7 +42,8 @@ export class LogInComponent implements OnInit {
         if (user.password == this.passwordInput) {
           IsPasswordRight = true
           console.log("password is right")
-          localStorage.setItem("isLogedIn", "true")
+          this._isReged.setRegStateTrue();
+          // localStorage.setItem("isLogedIn", "true")
           this._router.navigate(['/home']);
           break;
         }

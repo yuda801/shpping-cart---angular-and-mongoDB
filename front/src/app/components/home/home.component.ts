@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { productsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/models/product';
+import { StatesService } from 'src/app/services/states.service';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +16,12 @@ export class HomeComponent implements OnInit {
   public products: any = []
 
   constructor(private _router: Router,
-    private _productsService: productsService) { }
+    private _productsService: productsService,
+    private _isReged: StatesService) { }
 
   ngOnInit(): void {
-    if ((localStorage.getItem("isLogedIn")) !== "true") {
+    console.log("is reged is: " + this._isReged.getRegState())
+    if (!this._isReged.getRegState()) {
       this._router.navigate(['/login']);
       alert("user is not loged in");
     }

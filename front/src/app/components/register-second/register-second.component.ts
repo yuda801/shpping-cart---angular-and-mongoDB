@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
-// import { UsersI } from 'src/app/interfaces/usersInterface';
 import { User } from 'src/app/models/user';
+import { StatesService } from 'src/app/services/states.service';
 @Component({
   selector: 'app-register-second',
   templateUrl: './register-second.component.html',
@@ -15,10 +15,15 @@ export class RegisterSecondComponent implements OnInit {
   public users: User[] = []
 
   constructor(private _userService: UsersService,
-    private _router: Router) { }
+    private _router: Router,
+    private _states: StatesService) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem("regOneOk") !== "true")
+    console.log("this._states.getUserInfo() === []:")
+    console.log("getUserInfo" + this._states.getUserInfo())
+
+    // let isFirstRegFilled =
+    if(!this._states.getStateRegOne())
       this._router.navigate(['/register']);
 
     this._userService.getUsers()
@@ -36,18 +41,26 @@ export class RegisterSecondComponent implements OnInit {
     let cityInput = regForm.city
     let streetInput = regForm.street
 
-    if (!firstNameInput){alert("please enter your first name");return;}
-    if (!lastNameInput){alert("please enter your last name");return;}
-    if (!cityInput){alert("please enter your city");return;}
-    if (!streetInput){alert("please enter your street");return;}
+    if (!firstNameInput) { alert("please enter your first name"); return; }
+    if (!lastNameInput) { alert("please enter your last name"); return; }
+    if (!cityInput) { alert("please enter your city"); return; }
+    if (!streetInput) { alert("please enter your street"); return; }
 
     let temp = new User()
     temp.firstName = firstNameInput
     temp.lastName = lastNameInput
     temp.buyerCity = regForm.lastName
     temp.buyerStreet = regForm.lastName
+    let serviceUserInfo = this._states.getUserInfo()
+    console.log("arr is: " + serviceUserInfo)
+    temp.roll = serviceUserInfo.roll
+    temp.userID = serviceUserInfo.userID
+    temp.userName = serviceUserInfo.userName
+    temp.password = serviceUserInfo.password
     this._userService.addUser(temp)
-    .subscribe(msg => console.log(msg + "sec reg sent massage"))
+      .subscribe(msg => console.log(msg + "sec reg sent massage"))
+    this._router.navigate(['/home'])
     this._userService.getUsers()
+    this._states.setRegStateTrue()
   }
 }
