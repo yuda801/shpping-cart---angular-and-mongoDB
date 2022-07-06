@@ -12,15 +12,15 @@ exports.create = (req, res) => {
     // Create a user
     let tempID = 0
     const user = new User({
+        roll: req.body.roll || "users role",
         userID: req.body.userID || ++tempID,
+        password: req.body.password || "password",
         firstName: req.body.firstName || "first-name",
         lastName: req.body.lastName || "last-name",
         userName: req.body.userName || "usersEmail",
         ssn: req.body.ssn || 11111111,
-        password: req.body.password || "password",
         buyerCity: req.body.buyerCity || "buyerCity",
-        buyerStrret: req.body.buyerStrret || "buyerStrret",
-        roll: req.body.roll || "users role"
+        buyerStreet: req.body.buyerStreet || "buyerStreet",
     });
 
     // Save user in the database

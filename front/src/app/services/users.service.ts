@@ -1,28 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UsersI } from '../interfaces/usersInterface';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
   private _url: string = "http://localhost:3005/users"
-  users: any = []
+  users: any= []
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<UsersI[]> {
-    // return this.http.get<UsersI[]>(this._url);
-    this.users = this.http.get<UsersI[]>(this._url);
+  getUsers(): Observable<User[]> {
+    // return this.http.get<User[]>(this._url);
+    this.users = this.http.get<User[]>(this._url);
 
     console.log("users list in service:")
     console.log(this.users)
     return this.users;
-    // [
-    //   { "id": 1, "name": "avi", "age": 10 },
-    //   { "id": 2, "name": "avi2", "age": 20 },
-    //   { "id": 3, "name": "avi3", "age": 30 },
-    //   { "id": 4, "name": "avi4", "age": 40 }
-    // ]
+  }
+
+    /** create a user  */
+  addUser(user: User): Observable<any> {
+    console.log('user added!')
+    return this.http.post<any>(`${this._url}`, {
+       'roll': user.roll,
+       'userID': user.userID,
+       'userName': user.userName,
+       'password': user.password,
+       'firstName': user.firstName,
+       'lastName': user.lastName,
+       'ssn': user.ssn,
+       'buyerCity': user.buyerCity,
+       'buyerStreet': user.buyerStreet
+      })
   }
 }

@@ -1,5 +1,5 @@
 <mat-card class="container">
-  <form class="register-form">
+  <form class="register-form" #regFinal="ngForm">
 
     <header>
       <h1>Registration Form</h1>
@@ -7,33 +7,44 @@
     <h2>Registration Part 2</h2>
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
-      <input matInput
+      <input matInput ngModel
         placeholder="First Name"
         name="firstName">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Last Name</mat-label>
-      <input matInput
+      <input matInput ngModel
         placeholder="Last Name"
         name="lastName">
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="fill">
       <mat-label>City</mat-label>
-      <input matInput
-        placeholder="City"
-        name="city">
+      <select matNativeControl required name="city" ngModel>
+        <option value="Jerusalem">Jerusalem</option>
+        <option value="Tel Aviv">Tel Aviv</option>
+        <option value="Haifa">Haifa</option>
+        <option value="Petach Tikva">Petach Tikva</option>
+        <option value="Ashdod">Ashdod</option>
+        <option value="Netanya">Netanya</option>
+        <option value="Rishon LeZion">Rishon LeZion</option>
+        <option value="Bnei Brak">Bnei Brak</option>
+        <option value="Holon">Holon</option>
+        <option value="Be'er Sheva">Be'er Sheva</option>
+      </select>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Street</mat-label>
-      <input matInput
+      <input matInput ngModel
         placeholder="Street"
         name="street">
     </mat-form-field>
 
-    <button mat-raised-button color="primary">Sign Up! &nbsp; &nbsp;
+    <button mat-raised-button color="primary"
+    (click)="handleRegClick(regFinal.value)"
+    >Sign Up! &nbsp; &nbsp;
       <mat-icon>person_add</mat-icon>
     </button>
 

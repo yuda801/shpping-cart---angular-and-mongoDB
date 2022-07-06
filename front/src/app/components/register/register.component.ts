@@ -51,7 +51,8 @@ export class RegisterComponent implements OnInit {
     if(IsIdInSystem){
       alert("ID already in system, go to log in!")
     }else{
-        this._router.navigate(['/registersecond']);
+      localStorage.setItem("regOneOk", "true");
+      this._router.navigate(['/registersecond']);
     }
   }
 
