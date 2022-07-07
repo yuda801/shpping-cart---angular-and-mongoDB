@@ -9,12 +9,12 @@ export class StatesService {
 
   private isReged = false;
   private userInfo: User = new User()
-private isRegOneFilled = false
+  private isRegOneFilled = false
 
 
   //autheticate user when entered first part
-  getStateRegOne():boolean {
-    console.log("reg part one filled state is: " +this.isRegOneFilled )
+  getStateRegOne(): boolean {
+    console.log("reg part one filled state is: " + this.isRegOneFilled)
     return this.isRegOneFilled;
   }
   setStateRegOneTrue() {
@@ -23,7 +23,7 @@ private isRegOneFilled = false
   }
 
   //autheticate user when entering a component
-  getRegState():boolean {
+  getRegState(): boolean {
     console.log("registration state is: " + this.isReged)
     return this.isReged;
   }
@@ -49,9 +49,7 @@ private isRegOneFilled = false
 
 
 
-  // addTodo(title: string) {
-  //   // we assaign a new copy of todos by adding a new todo to it
-  //   // with automatically assigned ID ( don't do this at home, use uuid() )
+  // addTodo(title: string) {)
   //   this.todos = [
   //     ...this.todos,
   //     {id: this.todos.length + 1, title, isCompleted: false}
