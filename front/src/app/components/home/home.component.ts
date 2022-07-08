@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     {
       "productID": 10,
       "name": "orange",
-      "price": 12,
+      "price": 1.8,
       "imagePath": "https://res.cloudinary.com/yuda801/image/upload/v1657199932/orange_w2zxd5.jpg"
     },
     {
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
     },
     {
       "productID": 13,
-      "name": "water_malon",
+      "name": "water_melon",
       "price": 0.9,
       "imagePath": "https://res.cloudinary.com/yuda801/image/upload/v1657199935/water_malon_e1zucq.jpg"
     },
