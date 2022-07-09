@@ -8,4 +8,5 @@ export class User{
   lastName: String=''
   buyerCity: String=''
   buyerStreet: String=''
+  _id: string = ''
 }

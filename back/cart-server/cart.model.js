@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const CartSchema = mongoose.Schema({
-    cartID: Number,
-    userID: Number,
+    cartID: String,
+    userID: String,
     itemsInCart: [Object]
 }, {
     timestamps: true

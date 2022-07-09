@@ -15,8 +15,6 @@ export class productsService {
     this.products = this.http.get<Product[]>(this._url);
     console.log("products list in service:")
     console.log(this.products)
-    // this.products = [...this.products, ...this.productList]
-    // return this.products + this.productList;
     return this.products;
   }
 

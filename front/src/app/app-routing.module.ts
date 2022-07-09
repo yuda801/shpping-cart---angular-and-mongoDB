@@ -5,6 +5,7 @@ import { RegisterSecondComponent } from './components/register-second/register-s
 import { LogInComponent } from './components/log-in/log-in.component';
 import { HomeComponent } from './components/home/home.component';
 import { Page404Component } from './components/page404/page404.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: LogInComponent }, //Preferd way
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'registersecond', component: RegisterSecondComponent },
   { path: 'page404', component: Page404Component },
   { path: 'home', component: HomeComponent },
+  { path: 'cart', component: CartComponent },
   { path: '**', redirectTo: '/page404', pathMatch: 'full' }, //Should be the last one on list
 ];
 

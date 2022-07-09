@@ -9,17 +9,12 @@ exports.create = (req, res) => {
         });
     }
 
-    // cartId: Number,
-    // userID: Number,
-    // creationDate: Date,
-    // itemsInCart: [Object]
-
     // Create a cart
     let tempID = 0
     const cart = new Cart({
-        cartID: req.body.cartID || ++tempID,
-        userID: req.body.userID || ++tempID,
-        itemsInCart: req.body.itemsInCart || {"item":3}
+        cartID: req.body.cartID || "cart ID",
+        userID: req.body.userID || "user ID",
+        itemsInCart: req.body.itemsInCart || { "item": 3 }
     });
 
     // Save cart in the database
@@ -83,7 +78,7 @@ exports.delete = (req, res) => {
                 });
             }
             return res.status(500).send({
-                message: "Error deleting cart with id " + req.params.id
+                message: "Error deleting cart with id " + req.params.id + err
             });
         });
 };

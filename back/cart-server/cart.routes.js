@@ -8,11 +8,11 @@ module.exports = (app) => {
     app.get('/carts', carts.findAll);
 
     // Retrieve a single operation with objectId
-    app.get('/carts/:cartID', carts.findOne);
+    app.get('/carts/:id', carts.findOne);
 
     // Update a operation with cartID
     //app.put('/carts/:cartID', carts.update);
 
-    // Delete a operation with cartID
-    app.delete('/carts/:cartID', carts.delete);
+    // Delete a operation with cartIDs
+    app.delete('/carts/:id', carts.delete);
 }

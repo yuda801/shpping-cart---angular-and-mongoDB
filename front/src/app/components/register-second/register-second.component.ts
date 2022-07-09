@@ -5,6 +5,8 @@ import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { StatesService } from 'src/app/services/states.service';
+import { Cart } from 'src/app/models/cart';
+
 @Component({
   selector: 'app-register-second',
   templateUrl: './register-second.component.html',
@@ -23,7 +25,7 @@ export class RegisterSecondComponent implements OnInit {
     console.log("getUserInfo" + this._states.getUserInfo())
 
     // let isFirstRegFilled =
-    if(!this._states.getStateRegOne())
+    if (!this._states.getStateRegOne())
       this._router.navigate(['/register']);
 
     this._userService.getUsers()
@@ -57,10 +59,17 @@ export class RegisterSecondComponent implements OnInit {
     temp.userID = serviceUserInfo.userID
     temp.userName = serviceUserInfo.userName
     temp.password = serviceUserInfo.password
+    temp._id = serviceUserInfo._id;
     this._userService.addUser(temp)
       .subscribe(msg => console.log(msg + "sec reg sent massage"))
-    this._router.navigate(['/home'])
-    this._userService.getUsers()
+
+    //create new cart for user
+    let tempCart = new Cart()
+    tempCart.userID = this._states.getUserInfo()._id
+
+
     this._states.setRegStateTrue()
+    this._userService.getUsers()
+    this._router.navigate(['/home'])
   }
 }

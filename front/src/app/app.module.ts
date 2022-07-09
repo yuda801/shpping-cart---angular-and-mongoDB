@@ -19,6 +19,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     RegisterSecondComponent,
     HomeComponent,
     Page404Component,
-    NavbarComponent
+    NavbarComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

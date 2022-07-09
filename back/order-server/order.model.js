@@ -4,7 +4,7 @@ const OrderSchema = mongoose.Schema({
     orderID: Number,
     userID: Number,
     cartID: Number,
-    finalFrice: Number,
+    finalPrice: Number,
     city: String,
     street: String,
     deliveryDate: String,
