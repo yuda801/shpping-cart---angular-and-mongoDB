@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { Cart } from '../models/cart';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,8 +9,9 @@ export class StatesService {
   constructor() { }
 
   private isReged = false;
-  private userInfo: User = new User()
+  private userInfo: User = new User
   private isRegOneFilled = false
+  private items: String[] = []
 
 
   //autheticate user when entered first part
@@ -19,7 +21,7 @@ export class StatesService {
   }
   setStateRegOneTrue() {
     console.log("reg part one filled state is set true")
-    this.isReged = true;
+    this.isRegOneFilled = true;
   }
 
   //autheticate user when entering a component
@@ -47,19 +49,12 @@ export class StatesService {
     this.userInfo = data;
   }
 
-
-
-
-
-  // addTodo(title: string) {)
-  //   this.todos = [
-  //     ...this.todos,
-  //     {id: this.todos.length + 1, title, isCompleted: false}
-  //   ];
-  // }
-
-  // removeTodo() {
-  //   // this.todos = this.todos.filter(todo => todo.id !== id);
-  //   this.isReged = false;
-  // }
+  //holds the list of the items in the cart
+  // --remember to add and remove from local storage so it will be available on next enterance--
+  addToCart(item:String) {
+    this.items = [...this.items, item]
+  }
+  removeFromCart(item: String) {
+    this.items = this.items.filter(itm => itm !== item);
+  }
 }

@@ -21,19 +21,22 @@ export class RegisterSecondComponent implements OnInit {
     private _states: StatesService) { }
 
   ngOnInit(): void {
+    console.log("enteres register second");
     console.log("this._states.getUserInfo() === []:")
     console.log("getUserInfo" + this._states.getUserInfo())
 
     // let isFirstRegFilled =
-    if (!this._states.getStateRegOne())
+    if (!this._states.getStateRegOne()) {
+      console.log("reg state one is: " + this._states.getStateRegOne())
       this._router.navigate(['/register']);
+    }
 
     this._userService.getUsers()
       // .subscribe(data => this.users = data)
       .subscribe(data => {
         this.users = data
-        console.log("data in reg two component:")
-        console.log(data);
+        // console.log("data in reg two component:")
+        // console.log(data);
       })
   }
 
@@ -48,25 +51,26 @@ export class RegisterSecondComponent implements OnInit {
     if (!cityInput) { alert("please enter your city"); return; }
     if (!streetInput) { alert("please enter your street"); return; }
 
+    //create a new user
     let temp = new User()
     temp.firstName = firstNameInput
     temp.lastName = lastNameInput
     temp.buyerCity = regForm.lastName
     temp.buyerStreet = regForm.lastName
     let serviceUserInfo = this._states.getUserInfo()
-    console.log("arr is: " + serviceUserInfo)
+    // console.log("arr is: " + serviceUserInfo)
     temp.roll = serviceUserInfo.roll
     temp.userID = serviceUserInfo.userID
     temp.userName = serviceUserInfo.userName
     temp.password = serviceUserInfo.password
     temp._id = serviceUserInfo._id;
+
     this._userService.addUser(temp)
       .subscribe(msg => console.log(msg + "sec reg sent massage"))
 
     //create new cart for user
     let tempCart = new Cart()
     tempCart.userID = this._states.getUserInfo()._id
-
 
     this._states.setRegStateTrue()
     this._userService.getUsers()

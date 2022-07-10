@@ -2,6 +2,6 @@ export class Product {
   productID: Number = 0
   name: String = ''
   category: String = ''
-  price: Number = 0
+  price: number = 0
   imagePath: String = ''
 }

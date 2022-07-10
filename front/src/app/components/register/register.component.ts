@@ -20,13 +20,15 @@ export class RegisterComponent implements OnInit {
     private _router: Router,
     private _states:StatesService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log("enteres register first");
+
     this._userService.getUsers()
       // .subscribe(data => this.users = data)
       .subscribe(data => {
         this.users = data
-        console.log("data in reg one component:")
-        console.log(data);
+        // console.log("data in reg one component:")
+        // console.log(data);
       })
   }
 
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
     //check if user ID alerady in system
     let IsIdInSystem = false
     for (let user of this.users) {
-      console.log(user)
+      // console.log(user)
       if (user.userID === idInput) {
         IsIdInSystem = true;
         break;
@@ -54,6 +56,7 @@ export class RegisterComponent implements OnInit {
     if(IsIdInSystem){
       alert("ID already in system, go to log in!")
     }else{
+      console.log("good!, id is not yet in system")
       let user = new User()
       user.roll = roleInput;
       user.userID = idInput
@@ -62,6 +65,9 @@ export class RegisterComponent implements OnInit {
       // user.buyerCity = ''
       // user.buyerStreet = ''
       this._states.setUserInfo(user)
+      this._states.setStateRegOneTrue()
+      console.log("just set steate of part one to true")
+      console.log("going to second part")
       this._router.navigate(['/registersecond']);
     }
   }

@@ -21,9 +21,11 @@ export class CartComponent implements OnInit {
 
   // id = cart.id[0]
   ngOnInit(): void {
-    let user = this._states.getUserInfo()
-    let id = user._id;
-    this._cartService.getOneCart(id).subscribe(data => this.cart = data)
+    //cart = current user cart
+    this._cartService.getOneCart(this._states.getUserInfo()._id)
+
+
+    .subscribe(data => this.cart = data)
     let keys = Object.keys(this.cart)
     let values = Object.values(this.cart)
     console.log(this.cart)

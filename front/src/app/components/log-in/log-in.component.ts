@@ -18,6 +18,8 @@ export class LogInComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    console.log("enteres log in component");
+
     this._userService.getUsers()
       // .subscribe(data => this.users = data)
       .subscribe(data => {

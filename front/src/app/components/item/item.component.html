@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+  <mat-card-title class="product-image">{{product.name}}</mat-card-title>
+  <mat-card-content>
+    <p>{{product.price | currency}}</p>
+    <img [src]="product.imagePath" alt="Error loading picture"/>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions>
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="amount">
+    </mat-form-field>
+    <button mat-button>ADD TO CART
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-card-actions>
+  <mat-card-footer *ngIf="false">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

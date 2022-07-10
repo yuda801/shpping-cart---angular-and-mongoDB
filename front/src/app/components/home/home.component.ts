@@ -4,6 +4,7 @@ import { productsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/models/product';
 import { StatesService } from 'src/app/services/states.service';
 import { User } from 'src/app/models/user';
+// import { Item } from 'src/app/models/item';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ import { User } from 'src/app/models/user';
 export class HomeComponent implements OnInit {
   user: User = new User;
   id: String = ''
-
+  amount:Number = 0;
+  product:Product = new Product()
   public products: any = []
   public productlist = [
     {
@@ -64,6 +66,8 @@ export class HomeComponent implements OnInit {
     private _states: StatesService) { }
 
   ngOnInit(): void {
+    console.log("entered home component");
+
     console.log("is reged is: " + this._states.getRegState())
 
     //go to log in page if user is not loged in
@@ -77,8 +81,10 @@ export class HomeComponent implements OnInit {
       .subscribe(data => this.products = data)
     // this.user = this._states.getUserInfo();
     // this.id = this.user._id;
+  }
 
-    
+  handleAddToCartBtn(id: String){
+    this._states.addToCart(id);
   }
 
 }

@@ -20,6 +20,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { CartComponent } from './components/cart/cart.component';
+import { ItemComponent } from './components/item/item.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CartComponent } from './components/cart/cart.component';
     HomeComponent,
     Page404Component,
     NavbarComponent,
-    CartComponent
+    CartComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
