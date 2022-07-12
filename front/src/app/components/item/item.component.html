@@ -5,16 +5,20 @@
     <img [src]="product.imagePath" alt="Error loading picture"/>
   </mat-card-content>
   <mat-divider inset></mat-divider>
+  <div class="footer">
+  <mat-form-field class="amount-field" appearance="fill">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" min="1" max="100" [(ngModel)]="amount">
+  </mat-form-field>
   <mat-card-actions>
-    <mat-form-field class="example-form-field" appearance="fill">
-      <mat-label>Amount</mat-label>
-      <input matInput type="number" [(ngModel)]="amount">
-    </mat-form-field>
-    <button mat-button>ADD TO CART
+    <button mat-button
+    (click)="handleAddBtn()"
+    >ADD TO CART
       <mat-icon>shopping_cart</mat-icon>
     </button>
   </mat-card-actions>
-  <mat-card-footer *ngIf="false">
+</div>
+  <!-- <mat-card-footer *ngIf="false">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  </mat-card-footer>
+  </mat-card-footer> -->
 </mat-card>

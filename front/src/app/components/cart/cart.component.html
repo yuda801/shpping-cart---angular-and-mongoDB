@@ -1,28 +1,24 @@
 <div class="container">
-  <div class="item">
-    {{cart | json}}
-    <button (click)="handleclick()"></button>
-<!--
-    <div class="card"
-    *ngFor="let item of cart">
-    <div class="cards-container">
-      <mat-card class="example-card">
-        <mat-card-title class="item-image">{{item.name}}</mat-card-title>
-        <mat-card-content>
-          <p>{{item.price | currency}}</p>
-          <img [src]="item.imagePath" alt="Error loading picture"/>
-        </mat-card-content>
-        <mat-divider inset></mat-divider>
-        <mat-card-actions>
-          <button mat-button>ADD TO CART
-            <mat-icon>shopping_cart</mat-icon>
-          </button>
-        </mat-card-actions>
-        <mat-card-footer *ngIf="false">
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </mat-card-footer>
-      </mat-card>
-    </div> -->
 
-  </div>
+    <h1>Items In Cart</h1>
+    <table mat-table
+      class="mat-elevation-z8">
+      <tr>
+        <th mat-header-cell>No.</th>
+        <th mat-header-cell>Name</th>
+        <th mat-header-cell>Amount</th>
+      </tr>
+
+      <tr class="print"
+        *ngFor="let item of cart; let i = index">
+        <td mat-cell>{{i}}</td>
+        <td mat-cell>{{item.item}}</td>
+        <td mat-cell>{{item.quantity}}</td>
+      </tr>
+    </table>
+
+    <button mat-raised-button color="primary"
+      (click)="handleclick()">
+    Go To Payment</button>
+
 </div>

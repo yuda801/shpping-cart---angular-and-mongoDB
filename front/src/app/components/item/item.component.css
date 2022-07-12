@@ -18,3 +18,13 @@ img {
   align-items: stretch;
   margin: 5px;
 }
+
+.amount-field{
+  width:35%;
+}
+
+.footer{
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+}

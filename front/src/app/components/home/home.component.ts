@@ -12,6 +12,7 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  forReRender: Boolean = false
   user: User = new User;
   id: String = ''
   amount:Number = 0;
@@ -66,8 +67,9 @@ export class HomeComponent implements OnInit {
     private _states: StatesService) { }
 
   ngOnInit(): void {
-    console.log("entered home component");
+    this.forReRender = !this.forReRender
 
+    console.log("entered home component");
     console.log("is reged is: " + this._states.getRegState())
 
     //go to log in page if user is not loged in
@@ -83,9 +85,9 @@ export class HomeComponent implements OnInit {
     // this.id = this.user._id;
   }
 
-  handleAddToCartBtn(id: String){
-    this._states.addToCart(id);
-  }
+  // handleAddToCartBtn(id: String){
+  //   this._states.addToCart(id);
+  // }
 
 }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Cart } from '../models/cart';
+import { Item } from '../models/item';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class StatesService {
   private isReged = false;
   private userInfo: User = new User
   private isRegOneFilled = false
-  private items: String[] = []
+  private items: Item[] = []
 
 
   //autheticate user when entered first part
@@ -51,10 +52,13 @@ export class StatesService {
 
   //holds the list of the items in the cart
   // --remember to add and remove from local storage so it will be available on next enterance--
-  addToCart(item:String) {
+  getCart() {
+    return this.items;
+  }
+  addToCart(item:Item) {
     this.items = [...this.items, item]
   }
-  removeFromCart(item: String) {
-    this.items = this.items.filter(itm => itm !== item);
+  removeFromCart(item: Item) {
+    this.items = this.items.filter(itm => itm.item !== item.item);
   }
 }
