@@ -12,12 +12,8 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
   forRender:string = "render!";
+  temoproduct:any;
   @Input() product: Product = new Product()
-  @Output() newItemEvent = new EventEmitter<string>();
-
-  addNewItem(value: string) {
-    this.newItemEvent.emit(value);
-  }
 
   amount: Number = 1;
   constructor(private _states: StatesService,
@@ -30,15 +26,15 @@ export class ItemComponent implements OnInit {
     if(this.amount < 1){alert("amount must be 1 or higher");this.amount=1;return; }
     if(this.amount > 100){alert("amount cant be more than 100");this.amount=100;return; }
     let temp = new Item()
-    temp.itemID = this.product.productID
-    temp.item = this.product.name;
+    temp.itemID = this.temoproduct._id;
+    temp.item = this.temoproduct.name;
     temp.quantity = this.amount;
     this._states.addToCart(temp);
     // console.log(this._states.getCart())
-    this.addNewItem(this.forRender)
-    this._router.navigateByUrl('/cart', { skipLocationChange: true })
-    .then(() => {this._router.navigate(['/home']);
-    });
+    // this._router.navigateByUrl('/cart', { skipLocationChange: true })
+    // .then(() => {this._router.navigate(['/home']);
+  // });
+    this._router.navigate(['/cart'])
   }
 
 

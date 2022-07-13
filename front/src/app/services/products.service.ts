@@ -7,15 +7,15 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class productsService {
-  private _url: string = "http://localhost:3005/products"
-  products:any =[]
+  public _url: string = "http://localhost:3005/products"
+  // products: Product[] = []
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    this.products = this.http.get<Product[]>(this._url);
-    console.log("products list in service:")
-    console.log(this.products)
-    return this.products;
+    return this.http.get<Product[]>(this._url);
+    // console.log("products list in service:")
+    // console.log(this.products)
+    // return this.products;
   }
 
   /** GET Products by id. Will 404 if id not found */
@@ -23,10 +23,22 @@ export class productsService {
     return this.http.delete<Product>(`${this._url}/${id}`)
   }
 
+
+  getOneProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(`${this._url}/${id}`);
+  }
+
   /** create a  Products  */
-  // addProducts(products: Product): Observable<any> {
-  //   console.log('service added producr')
-  //   return this.http.post<any>(`${this._url}`, { 'model': Products.model, 'color': Products.color })
-  // }
+  // '_id': product._id,
+  addProduct(product: Product): Observable<Product> {
+    console.log('service added product')
+    return this.http.post<Product>(`${this._url}`, {
+      'productID': product.productID,
+      'name': product.name,
+      'category': product.category,
+      'price': product.price,
+      'imagePath': product.imagePath
+    })
+  }
 }
 

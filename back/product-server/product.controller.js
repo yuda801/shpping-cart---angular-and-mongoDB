@@ -22,6 +22,7 @@ exports.create = (req, res) => {
     // Save product in the database
     product.save()
         .then(data => {
+            console.log("product added to DB")
             res.send(data);
         }).catch(err => {
             res.status(500).send({

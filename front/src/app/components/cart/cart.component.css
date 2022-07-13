@@ -2,11 +2,15 @@
   min-height: 100vh;
   min-width:200px;
   border: 1px red ridge;
-  border-radius: 15px;
+  border-radius: 5px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 
- th, td {
+th, td {
   border:1px solid black;
 }
+
+
+

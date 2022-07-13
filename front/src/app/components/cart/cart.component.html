@@ -11,13 +11,14 @@
 
       <tr class="print"
         *ngFor="let item of cart; let i = index">
-        <td mat-cell>{{i}}</td>
+        <td mat-cell>{{i + 1}}</td>
         <td mat-cell>{{item.item}}</td>
         <td mat-cell>{{item.quantity}}</td>
       </tr>
     </table>
+    {{finalPrice}}
 
-    <button mat-raised-button color="primary"
+    <button mat-raised-button color="primary" class="button"
       (click)="handleclick()">
     Go To Payment</button>
 

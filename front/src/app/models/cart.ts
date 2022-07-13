@@ -1,5 +1,5 @@
 export class Cart {
-  cartID: String =''
-  userID: String = ''
+  cartID: string =''
+  userID: string = ''
   itemsInCart: Object[] = [{}]
 }

@@ -1,5 +1,5 @@
 module.exports = {
-    url: "mongodb://localhost:27017/bank"
+    url: "mongodb://localhost:27017/shop"
     //remote -working good
     //url: 'mongodb+srv://pashkelon:Avi123456@cluster0-aeknn.azure.mongodb.net/test?retryWrites=true&w=majority'
 }

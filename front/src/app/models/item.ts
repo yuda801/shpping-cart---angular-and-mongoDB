@@ -1,5 +1,6 @@
 export class Item{
-  itemID: Number = 0
+  _id: string = ''
+  itemID: String = ''
   item: String = ''
   quantity: Number = 0
 }
