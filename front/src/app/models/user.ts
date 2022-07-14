@@ -1,9 +1,9 @@
 export class User{
   roll: String=''
-  userID: Number=0
+  userID: number=0
   userName: String=''//email
   password:String=''
-  ssn: Number=0
+  ssn: number=0
   firstName: String=''
   lastName: String=''
   buyerCity: String=''

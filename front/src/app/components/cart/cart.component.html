@@ -1,4 +1,6 @@
-<div class="container">
+<mat-card>
+
+  <div class="container">
 
     <h1>Items In Cart</h1>
     <table mat-table
@@ -7,19 +9,24 @@
         <th mat-header-cell>No.</th>
         <th mat-header-cell>Name</th>
         <th mat-header-cell>Amount</th>
+        <th mat-header-cell>Price</th>
       </tr>
 
       <tr class="print"
         *ngFor="let item of cart; let i = index">
-        <td mat-cell>{{i + 1}}</td>
+        <th mat-cell>{{i + 1}}</th>
         <td mat-cell>{{item.item}}</td>
         <td mat-cell>{{item.quantity}}</td>
+        <td mat-cell>{{item.price}}</td>
       </tr>
-    </table>
-    {{finalPrice}}
+    </table><br>
+    <h2>FINAL PRICE: {{finalPrice | number :'1.0-3' | currency}}</h2>
 
-    <button mat-raised-button color="primary" class="button"
+    <button mat-raised-button
+      color="primary"
+      class="button"
       (click)="handleclick()">
-    Go To Payment</button>
+      Go To Payment</button>
 
-</div>
+  </div>
+</mat-card>

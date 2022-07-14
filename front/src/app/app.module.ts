@@ -21,6 +21,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { CartComponent } from './components/cart/cart.component';
 import { ItemComponent } from './components/item/item.component';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ItemComponent } from './components/item/item.component';
     Page404Component,
     NavbarComponent,
     CartComponent,
-    ItemComponent
+    ItemComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

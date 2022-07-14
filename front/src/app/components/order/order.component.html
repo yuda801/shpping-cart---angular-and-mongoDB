@@ -1,0 +1,54 @@
+<mat-card class="container">
+  <form class="register-form"
+    #orderForm="ngForm">
+
+    <header>
+      <h1>ORDER</h1>
+    </header>
+    <h2>Shiping Details</h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label>City</mat-label>
+      <select matNativeControl required name="city" ngModel>
+        <option value="Jerusalem">Jerusalem</option>
+        <option value="Tel Aviv">Tel Aviv</option>
+        <option value="Haifa">Haifa</option>
+        <option value="Petach Tikva">Petach Tikva</option>
+        <option value="Ashdod">Ashdod</option>
+        <option value="Netanya">Netanya</option>
+        <option value="Rishon LeZion">Rishon LeZion</option>
+        <option value="Bnei Brak">Bnei Brak</option>
+        <option value="Holon">Holon</option>
+        <option value="Be'er Sheva">Be'er Sheva</option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Strret</mat-label>
+      <input matInput ngModel
+        placeholder="Street"
+        name="street" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input matInput ngModel
+        placeholder="1-1-2020"
+        name="date" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Credit-Card</mat-label>
+      <input matInput ngModel
+        placeholder="0000-0000-0000"
+        name="creditCard" required>
+    </mat-form-field>
+
+    <button mat-raised-button
+      color="primary"
+      (click)="handleRegClick(orderForm.form.value)"
+      >Place Order &nbsp;
+    </button>
+
+  </form>
+</mat-card>

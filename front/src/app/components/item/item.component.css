@@ -3,14 +3,22 @@ img {
   height: 80%;
 }
 
-.container {
+.example-card{
+  background: url('../../../assets/birds.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* .container {
   display: flex;
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
   align-items: stretch;
   object-fit: contain;
-}
+} */
 
 .card {
   max-width: 20%;

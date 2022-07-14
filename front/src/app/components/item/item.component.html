@@ -2,22 +2,27 @@
   <mat-card-title class="product-image">{{product.name}}</mat-card-title>
   <mat-card-content>
     <p>{{product.price | currency}}</p>
-    <img [src]="product.imagePath" alt="Error loading picture"/>
+    <img [src]="product.imagePath"
+      alt="Error loading picture" />
   </mat-card-content>
   <mat-divider inset></mat-divider>
   <div class="footer">
-  <mat-form-field class="amount-field" appearance="fill">
-    <mat-label>Amount</mat-label>
-    <input matInput type="number" min="1" max="100" [(ngModel)]="amount">
-  </mat-form-field>
-  <mat-card-actions>
-    <button mat-button
-    (click)="handleAddBtn()"
-    >ADD TO CART
-      <mat-icon>shopping_cart</mat-icon>
-    </button>
-  </mat-card-actions>
-</div>
+    <mat-form-field class="amount-field"
+      appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput
+        type="number"
+        min="1"
+        max="100"
+        [(ngModel)]="amount">
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-button
+        (click)="handleAddBtn()">ADD TO CART
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
   <!-- <mat-card-footer *ngIf="false">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   </mat-card-footer> -->

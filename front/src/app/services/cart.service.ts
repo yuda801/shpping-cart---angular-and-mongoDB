@@ -14,26 +14,16 @@ export class CartService {
 
   getCarts(): Observable<Cart[]> {
     return this.http.get<Cart[]>(this._url);
-    // console.log("cart list in service:")
-    // console.log(this.cart)
-    // return this.cart;
   }
 
   getOneCart(id: string): Observable<Cart> {
     return this.http.get<Cart>(`${this._url}/${id}`);
-    // console.log("cart by id in service:")
-    // console.log(this.cart)
-    // return this.cart;
   }
 
   /** GET cart by id. Will 404 if id not found */
   delCart(id: string): Observable<Cart> {
     return this.http.delete<Cart>(`${this._url}/${id}`)
   }
-
-  // cartID: Number = 0
-  // userID: Number = 0
-  // itemsInCart: Object[] = [{}]
 
   /** create a  cart  */
   addCart(cart: Cart): Observable<Cart> {

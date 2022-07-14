@@ -15,7 +15,7 @@ exports.create = (req, res) => {
         productID: req.body.productID || ++tempID,
         name: req.body.name || "name",
         category: req.body.category || "category",
-        price: req.body.price || 11111111,
+        price: req.body.price || 11,
         imagePath: req.body.imagePath || "imagePath"
     });
 

@@ -8,6 +8,12 @@ img {
   flex-wrap: no-wrap;
   flex-direction: row;
   margin: auto;
+
+  background: url('../../../assets/whiteWall.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   /* justify-content: center;
   align-items: stretch;
   object-fit: contain; */

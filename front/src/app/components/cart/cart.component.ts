@@ -14,7 +14,7 @@ import { productsService } from 'src/app/services/products.service';
 })
 export class CartComponent implements OnInit {
   item: Item = new Item()
-  product: Product = new Product()
+  @Input() product: Product = new Product()
   counter: number = 1;
   @Input() justForRender: Boolean = false
   cart: Item[] = []
@@ -29,12 +29,9 @@ export class CartComponent implements OnInit {
     this.cart = this._states.getCart()
     console.log("this.cart: ")
     console.table(this.cart)
+    this.finalPrice = 0;
     for (let i of this.cart) {
-      this._productService.getOneProduct(i._id)
-        .subscribe(data => this.product = data);
-      this.finalPrice += this.product.price;
-      console.log(this.product)
-      console.log("final price: " + this.finalPrice);
+      this.finalPrice += (i.price * i.quantity);
     }
     // if (!this._states.getRegState()) {
     //   this._router.navigate(['/login']);

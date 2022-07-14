@@ -13,9 +13,6 @@ export class productsService {
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this._url);
-    // console.log("products list in service:")
-    // console.log(this.products)
-    // return this.products;
   }
 
   /** GET Products by id. Will 404 if id not found */

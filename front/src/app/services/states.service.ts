@@ -53,9 +53,11 @@ export class StatesService {
   //holds the list of the items in the cart
   // --remember to add and remove from local storage so it will be available on next enterance--
   getCart() {
+    console.log("returning local list of cart items")
     return this.items;
   }
   addToCart(item:Item) {
+    console.log("added to local cart list")
     this.items = [...this.items, item]
   }
   removeFromCart(item: Item) {
