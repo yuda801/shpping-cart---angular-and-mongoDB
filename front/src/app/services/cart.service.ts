@@ -9,7 +9,7 @@ import { Cart } from '../models/cart';
 export class CartService {
 
   private _url: string = "http://localhost:3005/carts"
-  cart: any = []
+  private cart: Cart = new Cart()
   constructor(private http: HttpClient) { }
 
   getCarts(): Observable<Cart[]> {

@@ -1,10 +1,11 @@
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
+import { StatesService } from 'src/app/services/states.service';
+import { CartService } from 'src/app/services/cart.service';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
-import { StatesService } from 'src/app/services/states.service';
 import { Cart } from 'src/app/models/cart';
 
 @Component({
@@ -15,28 +16,26 @@ import { Cart } from 'src/app/models/cart';
 export class RegisterSecondComponent implements OnInit {
 
   public users: User[] = []
+  private cart:Cart = new Cart()
 
   constructor(private _userService: UsersService,
     private _router: Router,
-    private _states: StatesService) { }
+    private _states: StatesService,
+    private _cartService:CartService) { }
 
   ngOnInit(): void {
     console.log("enteres register second");
     console.log("this._states.getUserInfo() === []:")
     console.log("getUserInfo" + this._states.getUserInfo())
 
-    // let isFirstRegFilled =
     if (!this._states.getStateRegOne()) {
       console.log("reg state one is: " + this._states.getStateRegOne())
       this._router.navigate(['/register']);
     }
 
     this._userService.getUsers()
-      // .subscribe(data => this.users = data)
       .subscribe(data => {
         this.users = data
-        // console.log("data in reg two component:")
-        // console.log(data);
       })
   }
 
@@ -66,11 +65,16 @@ export class RegisterSecondComponent implements OnInit {
     temp._id = serviceUserInfo._id;
 
     this._userService.addUser(temp)
-      .subscribe(msg => console.log(msg + "sec reg sent massage"))
+    .subscribe(msg => console.log(msg + "sec reg sent massage"))
 
+    // cartID: string =''
+    // userID: string = ''
+    // itemsInCart: Object[] = [{}]
     //create new cart for user
     let tempCart = new Cart()
     tempCart.userID = this._states.getUserInfo()._id
+    this._cartService.addCart(tempCart).subscribe(data => this.cart = data)
+    this._states.setCartID(this.cart.cartID)
 
     this._states.setRegStateTrue()
     this._userService.getUsers()

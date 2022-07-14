@@ -13,7 +13,8 @@ export class StatesService {
   private userInfo: User = new User
   private isRegOneFilled = false
   private items: Item[] = []
-
+  private orderFinalPrice: number = 0
+  private cartID: string = ''
 
   //autheticate user when entered first part
   getStateRegOne(): boolean {
@@ -56,11 +57,29 @@ export class StatesService {
     console.log("returning local list of cart items")
     return this.items;
   }
-  addToCart(item:Item) {
+  addToCart(item: Item) {
     console.log("added to local cart list")
     this.items = [...this.items, item]
   }
   removeFromCart(item: Item) {
     this.items = this.items.filter(itm => itm.item !== item.item);
+  }
+
+  getOrderFinalPrice() {
+    console.log("returning final price")
+    return this.orderFinalPrice;
+  }
+  setOrderFinalPrice(price: number) {
+    console.log("set final price to" + price);
+    this.orderFinalPrice = price;
+  }
+
+  getCartID() {
+    console.log("returning cartID")
+    return this.orderFinalPrice;
+  }
+  setCartID(id: string) {
+    console.log("set cartID to" + id);
+    this.cartID = id;
   }
 }
