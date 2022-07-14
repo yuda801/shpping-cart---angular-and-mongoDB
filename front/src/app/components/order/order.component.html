@@ -1,4 +1,31 @@
-<mat-card class="container">
+<div class="order-page">
+  <mat-card>
+
+    <div class="itemsInList">
+
+      <h1>Items In Cart</h1>
+      <table mat-table
+        class="mat-elevation-z8">
+        <tr>
+          <th mat-header-cell>No.</th>
+          <th mat-header-cell>Name</th>
+          <th mat-header-cell>Amount</th>
+          <th mat-header-cell>Price</th>
+        </tr>
+
+        <tr class="print"
+          *ngFor="let item of cart; let i = index">
+          <th mat-cell>{{i + 1}}</th>
+          <td mat-cell>{{item.item}}</td>
+          <td mat-cell>{{item.quantity}}</td>
+          <td mat-cell>{{item.price}}</td>
+        </tr>
+      </table><br>
+      <h2>FINAL PRICE: {{finalPrice | number :'1.0-3' | currency}}</h2>
+    </div>
+  </mat-card>
+
+<mat-card class="order-container">
   <form class="register-form"
     #orderForm="ngForm">
 
@@ -9,7 +36,10 @@
 
     <mat-form-field appearance="fill">
       <mat-label>City</mat-label>
-      <select matNativeControl required name="city" ngModel>
+      <select matNativeControl
+        required
+        name="city"
+        ngModel>
         <option value="Jerusalem">Jerusalem</option>
         <option value="Tel Aviv">Tel Aviv</option>
         <option value="Haifa">Haifa</option>
@@ -24,31 +54,38 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Strret</mat-label>
-      <input matInput ngModel
+      <mat-label>Street</mat-label>
+      <input matInput
+        ngModel
         placeholder="Street"
-        name="street" required>
+        name="street"
+        required>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Date</mat-label>
-      <input matInput ngModel
+      <input matInput
+        ngModel
         placeholder="1-1-2020"
-        name="date" required>
+        name="date"
+        required>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Credit-Card</mat-label>
-      <input matInput ngModel
+      <input matInput
+        ngModel
         placeholder="0000-0000-0000"
-        name="creditCard" required>
+        name="creditCard"
+        required>
     </mat-form-field>
 
     <button mat-raised-button
       color="primary"
-      (click)="handleRegClick(orderForm.form.value)"
-      >Place Order &nbsp;
+      (click)="handleOrder(orderForm.form.value)">Place Order &nbsp;
     </button>
 
   </form>
 </mat-card>
+
+</div>

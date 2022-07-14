@@ -7,6 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { Page404Component } from './components/page404/page404.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ItemComponent } from './components/item/item.component';
+import { OrderComponent } from './components/order/order.component';
+
 const routes: Routes = [
   { path: '', component: LogInComponent }, //Preferd way
   { path: 'login', component: LogInComponent },
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'cart', component: CartComponent },
   { path: 'item', component: ItemComponent },
+  { path: 'order', component: OrderComponent },
   { path: '**', redirectTo: '/page404', pathMatch: 'full' }, //Should be the last one on list
 ];
 
