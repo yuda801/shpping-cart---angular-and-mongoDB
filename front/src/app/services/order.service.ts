@@ -17,7 +17,7 @@ export class OrderService {
   }
 
   /** GET Products by id. Will 404 if id not found */
-  delOrder(id: string): Observable<Order> {
+  deleteOrder(id: string): Observable<Order> {
     return this.http.delete<Order>(`${this._url}/${id}`)
   }
 
@@ -27,8 +27,8 @@ export class OrderService {
   }
 
   /** create an order  */
-  addProduct(order: Order): Observable<Order> {
-    console.log('service added order')
+  addOrder(order: Order): Observable<Order> {
+    // console.log('service added order')
     return this.http.post<Order>(`${this._url}`, {
       'orderID': order.orderID,
       'userID': order.userID,

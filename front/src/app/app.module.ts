@@ -49,7 +49,7 @@ import { OrderComponent } from './components/order/order.component';
     HttpClientModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

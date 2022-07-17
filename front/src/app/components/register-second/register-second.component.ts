@@ -7,6 +7,8 @@ import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { Cart } from 'src/app/models/cart';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-register-second',
@@ -16,12 +18,12 @@ import { Cart } from 'src/app/models/cart';
 export class RegisterSecondComponent implements OnInit {
 
   public users: User[] = []
-  private cart:Cart = new Cart()
+  private cart: Cart = new Cart()
 
   constructor(private _userService: UsersService,
     private _router: Router,
     private _states: StatesService,
-    private _cartService:CartService) { }
+    private _cartService: CartService) { }
 
   ngOnInit(): void {
     console.log("enteres register second");
@@ -45,10 +47,30 @@ export class RegisterSecondComponent implements OnInit {
     let cityInput = regForm.city
     let streetInput = regForm.street
 
-    if (!firstNameInput) { alert("please enter your first name"); return; }
-    if (!lastNameInput) { alert("please enter your last name"); return; }
-    if (!cityInput) { alert("please enter your city"); return; }
-    if (!streetInput) { alert("please enter your street"); return; }
+    if (!firstNameInput) {
+      Swal.fire({
+        position: 'top-end', icon: 'error', title: 'please enter your first name',
+        showConfirmButton: false, timer: 2500
+      }); return;
+    }
+    if (!lastNameInput) {
+      Swal.fire({
+        position: 'top-end', icon: 'error', title: 'please enter your last name',
+        showConfirmButton: false, timer: 2500
+      }); return;
+    }
+    if (!cityInput) {
+      Swal.fire({
+        position: 'top-end', icon: 'error', title: 'please enter your city',
+        showConfirmButton: false, timer: 2500
+      }); return;
+    }
+    if (!streetInput) {
+      Swal.fire({
+        position: 'top-end', icon: 'error', title: 'please enter your street',
+        showConfirmButton: false, timer: 2500
+      }); return;
+    }
 
     //create a new user
     let temp = new User()
@@ -57,7 +79,6 @@ export class RegisterSecondComponent implements OnInit {
     temp.buyerCity = regForm.lastName
     temp.buyerStreet = regForm.lastName
     let serviceUserInfo = this._states.getUserInfo()
-    // console.log("arr is: " + serviceUserInfo)
     temp.roll = serviceUserInfo.roll
     temp.userID = serviceUserInfo.userID
     temp.userName = serviceUserInfo.userName
@@ -65,19 +86,18 @@ export class RegisterSecondComponent implements OnInit {
     temp._id = serviceUserInfo._id;
 
     this._userService.addUser(temp)
-    .subscribe(msg => console.log(msg + "sec reg sent massage"))
+      .subscribe(msg => console.log(msg + "sec reg sent massage"))
+    //------------------------------------------//
 
-    // cartID: string =''
-    // userID: string = ''
-    // itemsInCart: Object[] = [{}]
     //create new cart for user
     let tempCart = new Cart()
     tempCart.userID = this._states.getUserInfo()._id
     this._cartService.addCart(tempCart).subscribe(data => this.cart = data)
     this._states.setCartID(this.cart.cartID)
+    console.log("new cart was mada with id:" + this._states.getCartID())
+    //-----------------------------------//
 
     this._states.setRegStateTrue()
-    this._userService.getUsers()
     this._router.navigate(['/home'])
   }
 }

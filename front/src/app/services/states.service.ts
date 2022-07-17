@@ -43,7 +43,7 @@ export class StatesService {
 
   //for moving user info between components
   getUserInfo(): User {
-    console.log("User Info: " + this.userInfo)
+    // console.log("User Info: " + this.userInfo)
     return this.userInfo;
   }
   setUserInfo(data: User): void {

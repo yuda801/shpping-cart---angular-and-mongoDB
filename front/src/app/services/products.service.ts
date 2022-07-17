@@ -28,7 +28,7 @@ export class productsService {
   /** create a  Products  */
   // '_id': product._id,
   addProduct(product: Product): Observable<Product> {
-    console.log('service added product')
+    // console.log('service added product')
     return this.http.post<Product>(`${this._url}`, {
       'productID': product.productID,
       'name': product.name,

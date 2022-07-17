@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { StatesService } from 'src/app/services/states.service';
 import { User } from 'src/app/models/user';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -24,12 +25,7 @@ export class RegisterComponent implements OnInit {
     console.log("enteres register first");
 
     this._userService.getUsers()
-      // .subscribe(data => this.users = data)
-      .subscribe(data => {
-        this.users = data
-        // console.log("data in reg one component:")
-        // console.log(data);
-      })
+       .subscribe(data => this.users = data)
   }
 
   handleRegClick(regForm: any): any {
@@ -38,10 +34,22 @@ export class RegisterComponent implements OnInit {
     let emailInput = regForm.email
     let passwordInput = regForm.password
 
-    if (!roleInput){alert("please choose your role");return;}
-    if (!idInput){alert("please enter your ID");return;}
-    if (!emailInput){alert("please enter your email");return;}
-    if (!passwordInput){alert("please enter your password");return;}
+    if (!roleInput) {  Swal.fire({
+      position: 'top-end', icon: 'error',   title: 'please enter your roll',
+      showConfirmButton: false,  timer: 2500 });  return; }
+    if (!idInput) {  Swal.fire({
+      position: 'top-end', icon: 'error',   title: 'please enter your id',
+      showConfirmButton: false,  timer: 2500 });  return; }
+    if (!emailInput) {  Swal.fire({
+      position: 'top-end', icon: 'error',   title: 'please enter your email',
+      showConfirmButton: false,  timer: 2500 });  return; }
+    if (!passwordInput) {  Swal.fire({
+      position: 'top-end', icon: 'error',   title: 'please enter your password',
+      showConfirmButton: false,  timer: 2500 });  return; }
+    // if (!roleInput){alert("please choose your role");return;}
+    // if (!idInput){alert("please enter your ID");return;}
+    // if (!emailInput){alert("please enter your email");return;}
+    // if (!passwordInput){alert("please enter your password");return;}
 
     //check if user ID alerady in system
     let IsIdInSystem = false

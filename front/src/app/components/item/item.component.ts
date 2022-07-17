@@ -21,8 +21,8 @@ export class ItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("current product received on item component is : ")
-    console.table(this.product)
+    // console.log("current product received on item component is : ")
+    // console.table(this.product)
    }
 
   handleAddBtn() {

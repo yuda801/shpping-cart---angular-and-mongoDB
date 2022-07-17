@@ -18,15 +18,10 @@ export class LogInComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    console.log("enteres log in component");
+    console.log("entered log in component");
 
     this._userService.getUsers()
-      // .subscribe(data => this.users = data)
-      .subscribe(data => {
-        this.users = data
-        console.log("data in log-in component:")
-        console.log(data);
-      })
+       .subscribe(data => this.users = data)
   }
 
   handleLogInClick(logInForm: any): any {
@@ -45,7 +40,6 @@ export class LogInComponent implements OnInit {
           IsPasswordRight = true
           console.log("password is right")
           this._isReged.setRegStateTrue();
-          // localStorage.setItem("isLogedIn", "true")
           this._router.navigate(['/home']);
           break;
         }

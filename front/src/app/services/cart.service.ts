@@ -27,7 +27,7 @@ export class CartService {
 
   /** create a  cart  */
   addCart(cart: Cart): Observable<Cart> {
-    console.log('service added cart')
+    // console.log('service added cart')
     return this.http.post<Cart>(`${this._url}`, {
       'cartID': cart.cartID,
       'userID': cart.userID,

@@ -15,8 +15,8 @@ export class UsersService {
     // return this.http.get<User[]>(this._url);
     this.users = this.http.get<User[]>(this._url);
 
-    console.log("users list in service:")
-    console.log(this.users)
+    // console.log("users list in service:")
+    // console.log(this.users)
     return this.users;
   }
 

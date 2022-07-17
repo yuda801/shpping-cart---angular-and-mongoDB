@@ -27,8 +27,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this._states.getCart()
-    console.log("this.cart: ")
-    console.table(this.cart)
     this.finalPrice = 0;
     for (let i of this.cart) {
       this.finalPrice += (i.price * i.quantity);
@@ -51,13 +49,9 @@ export class CartComponent implements OnInit {
     // console.table(this.cart)
     // console.log("is reged is: " + this._states.getRegState())
     this._router.navigate(["/home"])
-
-
-
-
   }
   handleclick() {
-
+    this._router.navigate(['/order']);
   }
 
 }
