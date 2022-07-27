@@ -61,8 +61,8 @@ export class StatesService {
     console.log("added to local cart list")
     this.items = [...this.items, item]
   }
-  removeFromCart(item: Item) {
-    this.items = this.items.filter(itm => itm.item !== item.item);
+  removeFromCart(id: string) {
+    this.items = this.items.filter(itm => itm._id !== id);
   }
 
   getOrderFinalPrice() {

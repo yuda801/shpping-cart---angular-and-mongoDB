@@ -1,8 +1,8 @@
 export class Product {
-  _id: String = ''
-  productID: number = 0
-  name: String = ''
-  category: String = ''
+  _id: string = ''
+  productID: string = ''
+  name: string = ''
+  category: string = ''
   price: number = 0
-  imagePath: String = ''
+  imagePath: string = ''
 }

@@ -44,13 +44,6 @@ export class HomeComponent implements OnInit {
 
 }
 
-    // for (let prodct of this.productList) {
-    //   console.log("product I is: ")
-    //   console.log(prodct)
-    //   this._productsService.addProduct(prodct)
-    //   .subscribe(data => this.product = data)
-    // }
-
 // private productList = [
   //   {
   //     "productID": 10,
@@ -95,11 +88,3 @@ export class HomeComponent implements OnInit {
   //     "imagePath": "https://res.cloudinary.com/yuda801/image/upload/v1657199933/pear_es3lsm.jpg",
   //   }
   // ]
-    // "_id": "gergiom89er"
-  // "_id": "gtwiu89i4wrd"
-  // "_id": "m5ei!o7okk0"
-  // "_id": "fdfvrgsfef"
-  // "_id": "greg5445ghjj"
-  // "_id": "m5bser54e4"
-  //
-

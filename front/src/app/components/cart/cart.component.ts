@@ -53,5 +53,8 @@ export class CartComponent implements OnInit {
   handleclick() {
     this._router.navigate(['/order']);
   }
+  handleDelete(id:string){
+    this._states.removeFromCart(id)
+  }
 
 }

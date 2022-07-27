@@ -10,6 +10,7 @@
         <th mat-header-cell>Name</th>
         <th mat-header-cell>Amount</th>
         <th mat-header-cell>Price</th>
+        <th mat-header-cell>Delete</th>
       </tr>
 
       <tr class="print"
@@ -18,7 +19,10 @@
         <td mat-cell>{{item.item}}</td>
         <td mat-cell>{{item.quantity}}</td>
         <td mat-cell>{{item.price}}</td>
-      </tr>
+        <td mat-cell><button
+          (click)="handleDelete(item.itemID)"
+          >Delete</button></td>
+        </tr>
     </table><br>
     <h2>FINAL PRICE: {{finalPrice | number :'1.0-3' | currency}}</h2>
 

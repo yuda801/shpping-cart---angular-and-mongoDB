@@ -34,6 +34,8 @@ export class ItemComponent implements OnInit {
     temp.quantity = this.amount;
     temp.price = this.product.price;
     this._states.addToCart(temp);
+    console.log("tempitem just created is: ")
+    console.log(temp)
     // console.log(this._states.getCart())
     // this._router.navigateByUrl('/cart', { skipLocationChange: true })
     // .then(() => {this._router.navigate(['/home']);

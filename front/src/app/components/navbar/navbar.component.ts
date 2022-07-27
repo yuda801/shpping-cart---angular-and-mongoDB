@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
 
   handleCartBtnClick() {
     if (this._state.getRegState() === true)
-      this._router.navigate(['/home'])
+      this._router.navigate(['/order'])
     else
       alert("you are not loged in")
   }
